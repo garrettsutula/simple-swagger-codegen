@@ -143,13 +143,10 @@ operations:
           type: array
           items:
             type: object
-
-              
-  
 ```
 
-#### Custom Mustache Variables
-You can also pass in your own variables for the mustache templates by adding a `customParams` object:
+#### Custom Mustache Parameters
+You can also pass in your own parameters for the mustache templates by adding a `customParams` object:
 
 ```javascript
 var source = codegen.getCode({
