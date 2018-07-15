@@ -1,5 +1,5 @@
 # Swagger to Javascript Codegen
-Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simple renders a provided mustache template against a swagger swagger definition.
+Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
 - get yaml parsing working again
