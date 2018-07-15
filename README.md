@@ -36,7 +36,7 @@ const code = getCode({
 ```
 
 ## Options
-`getCode()` supports the following options:
+`getCode({...})` accepts the following parameters:
 
 ```yaml
   moduleName:
