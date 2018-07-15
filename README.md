@@ -2,8 +2,6 @@
 Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
-- get yaml parsing working again
-- reimplement cli
 - more mustache template examples
 - maybe support typescript in the future (invoke angular cli???)
 - add to npm
@@ -11,6 +9,10 @@ Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules 
 
 ## Installation
 Download/clone this repo for now using `curl`, `git` or your favorite github client app.
+
+## Usage
+
+Run the command `node --experimental-modules ./lib/cli.mjs <outputFile> -t [mustache template name] -s [swagger template name]` to generate `<outputFile>.js`
 
 ## Example
 
