@@ -1,11 +1,10 @@
 {
   "name": "swagger-js-codegen",
-  "main": "./lib/codegen.js",
-  "version": "1.12.0",
+  "main": "./lib/codegen.mjs",
+  "version": "0.9.0",
   "description": "A Swagger codegen for JavaScript",
   "scripts": {
-    "test": "",
-    "clean": "rm -rf tmp-*"
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -13,6 +12,7 @@
   },
   "keywords": [
     "swagger",
+    "js",
     "rest"
   ],
   "author": {

@@ -8,7 +8,7 @@ Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules 
 - add tests
 
 ## Installation
-Download/clone this repo for now using `curl`, `git` or your favorite github client app.
+Download/clone this repo for now using `curl`, `git` or your favorite github client app. Requires Node.js version `10.0` or higher. Use [nvm](https://github.com/creationix/nvm) to easily switch between different versions of node runtimes.
 
 ## Usage
 
