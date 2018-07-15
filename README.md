@@ -1,5 +1,5 @@
 # Swagger to Javascript Codegen
-Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simple renders a provided mustache template against a swagger swagger definition.
+Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
 - get yaml parsing working again
@@ -20,8 +20,8 @@ Run example with the command `node --experimental-modules demo.js`
 import fs from 'fs';
 import getCode from 'codegen';
 
-let swaggerFile = JSON.parse(fs.readFileSync('../templates/swagger.json', 'utf-8'));
-let templateFile = fs.readFileSync('../templates/classGenerator.mustache', 'utf-8');
+let swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
+let templateFile = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
 
 const code = getCode({
   moduleName: 'Test',
@@ -64,6 +64,14 @@ moduleName:
 domain:
   type: string
   description: If all options defined: swagger.schemes[0] + '://' + swagger.host + swagger.basePath
+securityDefinitions:
+  type: array
+  items:
+    type: object
+definitions:
+  type: array
+  items:
+    type: object
 operations:
   type: array
   items:

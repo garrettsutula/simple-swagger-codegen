@@ -9,26 +9,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/wcandillon/swagger-js-codegen.git"
+    "url": "git://github.com/garrettsutula/swagger-js-codegen.git"
   },
   "keywords": [
     "swagger",
     "rest"
   ],
   "author": {
-    "name": "William Candillon",
-    "email": "w@28.io",
-    "url": "http://28.io"
+    "name": "Garrett Sutula",
+    "email": "garrett.sutula@gmail.com",
+    "url": "https://www.garrettsutula.com"
   },
-  "license": "Apache-2.0",
-  "homepage": "https://github.com/wcandillon/swagger-js-codegen",
+  "license": "ISC",
+  "homepage": "https://github.com/garrettsutula/swagger-js-codegen",
   "dependencies": {
     "commander": "^2.9.0",
-    "js-beautify": "^1.5.1",
     "js-yaml": "^3.10.0",
-    "jshint": "^2.5.1",
     "lodash": "^4.17.10",
     "mustache": "2.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  }
 }
