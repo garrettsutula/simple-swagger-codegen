@@ -12,11 +12,13 @@ Download/clone this repo for now using `curl`, `git` or your favorite github cli
 
 ## Usage
 
-Run the command `node --experimental-modules ./lib/cli.mjs <outputFile> -t [mustache template name] -s [swagger template name]` to generate `<outputFile>.js`
+Run the command `node --experimental-modules .\lib\cli.mjs <outputFile> -t [mustache template name] -s [swagger template name]` to generate `<outputFile>.js`
 
 ## Example
 
 Run example with the command `node --experimental-modules demo.js`
+
+CLI Example: `node --experimental-modules .\cli.mjs generate test -s '../templates/swagger.json' -t '../templates/classGenerator.mustache'`
 
 ```javascript
 import fs from 'fs';
