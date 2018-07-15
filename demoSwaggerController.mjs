@@ -16,5 +16,5 @@ const code = getCode({
   imports,
 });
 
-fs.writeFileSync('./demo_autogen.mjs', code);
+fs.writeFileSync('./dist/api/controllers/pet.mjs', code);
 console.log(code);
