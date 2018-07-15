@@ -2,19 +2,24 @@
 Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
-- get yaml parsing working again
-- reimplement cli
+- flatten other objects (operation security, responses, schema, scopes, api key, definitions properties) or determine yaml/templating pattern.
 - more mustache template examples
-- maybe support typescript in the future (invoke angular cli???)
 - add to npm
 - add tests
+- maybe support typescript in the future (invoke angular cli???)
 
 ## Installation
-Download/clone this repo for now using `curl`, `git` or your favorite github client app.
+Download/clone this repo for now using `curl`, `git` or your favorite github client app. Requires Node.js version `10.0` or higher. Use [nvm](https://github.com/creationix/nvm) to easily switch between different versions of node runtimes.
+
+## Usage
+
+Run the command `node --experimental-modules .\lib\cli.mjs <outputFile> -t [mustache template name] -s [swagger template name]` to generate `<outputFile>.js`
 
 ## Example
 
 Run example with the command `node --experimental-modules demo.js`
+
+CLI Example: `node --experimental-modules .\cli.mjs generate test -s '../templates/swagger.json' -t '../templates/classGenerator.mustache'`
 
 ```javascript
 import fs from 'fs';
@@ -31,7 +36,7 @@ const code = getCode({
 ```
 
 ## Options
-`getCode()` supports the following options:
+`getCode({...})` accepts the following parameters:
 
 ```yaml
   moduleName:
@@ -55,8 +60,6 @@ const code = getCode({
 ### Template Variables
 The following data are passed to the [mustache templates](https://github.com/janl/mustache.js):
 
-TODO: finish yaml definition here.
-
 ```yaml
 moduleName:
   type: string
@@ -68,10 +71,28 @@ securityDefinitions:
   type: array
   items:
     type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      authorizationUrl:
+        type: string
+      flow:
+        type: string
+      scopes:
+        type: object
 definitions:
   type: array
   items:
     type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      properties:
+        type: object
 operations:
   type: array
   items:
@@ -114,10 +135,18 @@ operations:
               type: boolean
             schema:
               type: object
+                $ref:
+                  type: string
+        responses:
+          type: object
+        security:
+          type: array
+          items:
+            type: object
 ```
 
-#### Custom Mustache Variables
-You can also pass in your own variables for the mustache templates by adding a `mustache` object:
+#### Custom Mustache Parameters
+You can also pass in your own parameters for the mustache templates by adding a `customParams` object:
 
 ```javascript
 var source = codegen.getCode({
