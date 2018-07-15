@@ -64,6 +64,14 @@ moduleName:
 domain:
   type: string
   description: If all options defined: swagger.schemes[0] + '://' + swagger.host + swagger.basePath
+securityDefinitions:
+  type: array
+  items:
+    type: object
+definitions:
+  type: array
+  items:
+    type: object
 operations:
   type: array
   items:
