@@ -121,7 +121,7 @@ operations:
 ```
 
 #### Custom Mustache Variables
-You can also pass in your own variables for the mustache templates by adding a `mustache` object:
+You can also pass in your own variables for the mustache templates by adding a `customParams` object:
 
 ```javascript
 var source = codegen.getCode({
