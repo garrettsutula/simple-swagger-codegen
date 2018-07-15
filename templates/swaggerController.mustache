@@ -1,0 +1,16 @@
+{{#imports}}
+import {{name}} from '{{path}}';
+{{/imports}}
+
+{{#operations}}
+function {{operationId}}(req, res) {
+  console.log('new request: {{operationId}}');
+  res.send('called {{operationId}}');
+}
+
+{{/operations}}
+export default {
+  {{#operations}}
+  {{operationId}},
+  {{/operations}}
+};

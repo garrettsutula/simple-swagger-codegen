@@ -25,8 +25,8 @@ CLI Example: `node --experimental-modules .\cli.mjs generate test -s '../templat
 import fs from 'fs';
 import getCode from 'codegen';
 
-let swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
-let templateFile = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
+const swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
+const templateFile = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
 
 const code = getCode({
   moduleName: 'Test',
@@ -51,6 +51,10 @@ const code = getCode({
     type: object
     required: true
     description: swagger object
+  imports:
+    type: array
+    required: false
+    description: optional data structure for node.js module imports
   customParams:
     type: object
     required: false
