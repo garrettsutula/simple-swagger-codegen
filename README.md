@@ -20,8 +20,8 @@ Run example with the command `node --experimental-modules demo.js`
 import fs from 'fs';
 import getCode from 'codegen';
 
-let swaggerFile = JSON.parse(fs.readFileSync('../templates/swagger.json', 'utf-8'));
-let templateFile = fs.readFileSync('../templates/classGenerator.mustache', 'utf-8');
+let swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
+let templateFile = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
 
 const code = getCode({
   moduleName: 'Test',
