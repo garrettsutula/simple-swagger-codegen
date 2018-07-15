@@ -1,13 +1,20 @@
 import fs from 'fs';
 import getCode from './lib/codegen';
 
-let swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
-let templateFile = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
+const swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
+const templateFile = fs.readFileSync('./templates/swaggerController.mustache', 'utf-8');
+
+const imports = [
+  { name: 'fs', path: 'fs' },
+  { name: 'util', path: 'util' },
+];
 
 const code = getCode({
   moduleName: 'Test',
   swagger: swaggerFile,
   template: templateFile,
+  imports,
 });
 
+fs.writeFileSync('./demo_autogen.mjs', code);
 console.log(code);
