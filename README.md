@@ -1,3 +1,11 @@
+# TODO
+- remove beautify - this is a templating codegen
+- removing linting - same thing
+- get yaml parsing working again
+- get the whole thing working again
+- probably temporarily remove everything except for node
+
+
 # Swagger to JS & Typescript Codegen
 [![Circle CI](https://circleci.com/gh/wcandillon/swagger-js-codegen.svg?style=svg)](https://circleci.com/gh/wcandillon/swagger-js-codegen) [![NPM version](http://img.shields.io/npm/v/swagger-js-codegen.svg?style=flat)](http://badge.fury.io/js/swagger-js-codegen)
 
@@ -216,8 +224,4 @@ eg: https://cloud.google.com/appengine/docs/go/requests#Go_Request_headers
 ```
 
 
-## Grunt task
-[There is a grunt task](https://github.com/wcandillon/grunt-swagger-js-codegen) that enables you to integrate the code generation in your development pipeline. This is extremely convenient if your application is using APIs which are documented/specified in the swagger format.
 
-## Who is using it?
-[28.io](http://28.io) is using this project to generate their [nodejs](https://github.com/28msec/28.io-nodejs) and [angularjs language bindings](https://github.com/28msec/28.io-angularjs).
