@@ -77,9 +77,17 @@ The following data are passed to the [mustache templates](https://github.com/jan
 moduleName:
   type: string
   description: Your AngularJS module name - provided by your options field
+imports:
+  type: array
+  description: optional module imports passed from calling function
+constants:
+  type: object
+  description: optional constants passed from calling function
 domain:
   type: string
   description: If all options defined: swagger.schemes[0] + '://' + swagger.host + swagger.basePath
+info:
+  type: object
 securityDefinitions:
   type: array
   items:
