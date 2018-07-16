@@ -12,7 +12,7 @@ function demo(templatePath, outputPath, imports, constants) {
     imports,
     constants,
   });
-
+  console.log(code);
   fs.writeFileSync(outputPath, code);
 }
 

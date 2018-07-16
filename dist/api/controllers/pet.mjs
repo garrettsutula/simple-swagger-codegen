@@ -70,7 +70,7 @@ function deletePet(
   return new Promise((resolve, reject) => {
     // business logic goes here
     // always return a promise, implement resolve and reject
-    // abstract additional async operations into async functions with await in separate modules
+    // abstract additional async operations into async functions with await
   });
 }
 
