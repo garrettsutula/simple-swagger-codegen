@@ -167,12 +167,12 @@ operations:
 ```
 
 #### Custom Mustache Parameters
-You can also pass in your own parameters for the mustache templates by adding a `customParams` object:
+You can also pass in your own parameters for the mustache templates by adding a `constants` object:
 
 ```javascript
 var source = codegen.getCode({
     ...
-    customParams: {
+    constants: {
       foo: 'bar',
       app_build_id: env.BUILD_ID,
       app_version: pkg.version
