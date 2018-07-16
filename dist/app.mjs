@@ -10,7 +10,7 @@ const swaggerUi = swaggerUiDist.absolutePath();
 app.use(express.static(swaggerUi));
 
 const config = {
-  appRoot: path.dirname('./'), // required config
+  appRoot: path.dirname(), // required config
 };
 
 SwaggerExpress.create(config, (err, swaggerExpress) => {

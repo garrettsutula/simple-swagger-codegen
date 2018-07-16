@@ -1,11 +1,29 @@
 {{#imports}}
 import {{name}} from '{{path}}';
 {{/imports}}
+{{#classes}}
+import {{name}} from './{{name}}';
+{{/classes}}
 
 {{#operations}}
 function {{operationId}}(req, res) {
-  console.log('new request: {{operationId}}');
-  res.send('called {{operationId}}');
+  {{#parameters}}
+  const {{name}} = req.swagger.params['{{name}}'].value;
+  {{/parameters}}
+  {{#tags}}
+  {{.}}.{{operationId}}(
+    {{#parameters}}
+    {{name}},
+    {{/parameters}}
+  )
+    .then((response) => {
+      res.send(response);
+    })
+    .catch((err) => {
+      console.log(err.message);
+      res.send(err.message);
+    });
+  {{/tags}}
 }
 
 {{/operations}}

@@ -1,8 +1,6 @@
-import fs from 'fs';
-import getCode from './lib/codegen';
+import demo from './demo';
 
-const swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
-const templateFile = fs.readFileSync('./templates/swaggerPackage.mustache', 'utf-8');
+const outputPath = './dist/package.json';
 
 const imports = [
   { name: 'express', version: '^4.12.3' },
@@ -10,17 +8,4 @@ const imports = [
   { name: 'swagger-ui-dist', version: '^3.17.4' },
 ];
 
-const customParams = {
-  port: 8080,
-};
-
-const code = getCode({
-  moduleName: 'Test',
-  swagger: swaggerFile,
-  template: templateFile,
-  imports,
-  customParams,
-});
-
-fs.writeFileSync('./dist/package.json', code);
-console.log(code);
+demo('./templates/swaggerPackage.mustache', outputPath, imports);

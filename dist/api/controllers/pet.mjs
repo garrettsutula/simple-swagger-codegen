@@ -1,44 +1,89 @@
-import fs from 'fs';
 import util from 'util';
+import db from '../lib/db';
 
-function addPet(req, res) {
-  console.log('new request: addPet');
-  res.send('called addPet');
+function addPet(
+  body,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
-function updatePet(req, res) {
-  console.log('new request: updatePet');
-  res.send('called updatePet');
+function updatePet(
+  body,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
-function findPetsByStatus(req, res) {
-  console.log('new request: findPetsByStatus');
-  res.send('called findPetsByStatus');
+function findPetsByStatus(
+  status,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
-function findPetsByTags(req, res) {
-  console.log('new request: findPetsByTags');
-  res.send('called findPetsByTags');
+function findPetsByTags(
+  tags,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
-function getPetById(req, res) {
-  console.log('new request: getPetById');
-  res.send('called getPetById');
+function getPetById(
+  petId,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
-function updatePetWithForm(req, res) {
-  console.log('new request: updatePetWithForm');
-  res.send('called updatePetWithForm');
+function updatePetWithForm(
+  petId,
+  name,
+  status,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
-function deletePet(req, res) {
-  console.log('new request: deletePet');
-  res.send('called deletePet');
+function deletePet(
+  api_key,
+  petId,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await in separate modules
+  });
 }
 
-function uploadFile(req, res) {
-  console.log('new request: uploadFile');
-  res.send('called uploadFile');
+function uploadFile(
+  petId,
+  additionalMetadata,
+  file,
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
 }
 
 export default {
