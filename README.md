@@ -19,8 +19,6 @@ Run the command `node --experimental-modules .\lib\cli.mjs <outputFile> -t [must
 
 Example outputs in `./dist`, run the command `node --experimental-modules demoSwaggerApp.mjs|demoSwaggerController.mjs|demoSwaggerModule.mjs|demoSwaggerPackage.mjs` to re-generate the code.
 
-Run example with the command 
-
 CLI Example: `node --experimental-modules .\cli.mjs generate test -s '../templates/swagger.json' -t '../templates/classGenerator.mustache'`
 
 ```javascript
