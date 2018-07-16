@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "title": "Swagger Petstore",
     "termsOfService": "http://swagger.io/terms/",
+    "author": "Garrett Sutula",
     "contact": {
       "email": "apiteam@swagger.io"
     },

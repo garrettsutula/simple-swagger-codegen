@@ -1,0 +1,22 @@
+{
+  "name": "swagger",
+  "version": "1.0.0",
+  "description": "This is a sample server Petstore server.  You can find out more about     Swagger at [http:&#x2F;&#x2F;swagger.io](http:&#x2F;&#x2F;swagger.io) or on [irc.freenode.net, #swagger](http:&#x2F;&#x2F;swagger.io&#x2F;irc&#x2F;).      For this sample, you can use the api key &#x60;special-key&#x60; to test the authorization     filters.",
+  "keywords": [],
+  "author": "",
+  "license": "Apache 2.0",
+  "main": "app.mjs",
+  "dependencies": {
+    "express": "^4.12.3",
+    "swagger-express-mw": "^0.1.0",
+    "swagger-ui-dist": "^3.17.4"
+  },
+  "devDependencies": {
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test"
+  }
+}

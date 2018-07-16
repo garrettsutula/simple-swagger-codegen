@@ -1,20 +1,29 @@
 import fs from 'fs';
+import jsYaml from 'js-yaml';
 import getCode from './lib/codegen';
 
-const swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
-const templateFile = fs.readFileSync('./templates/swaggerController.mustache', 'utf-8');
+const yaml = jsYaml.safeLoad;
 
-const imports = [
-  { name: 'fs', path: 'fs' },
-  { name: 'util', path: 'util' },
-];
+function demo(templatePath, outputPath, imports, constants) {
+  const swaggerFile = fs.readFileSync('./swagger.yaml', 'utf-8');
+  const templateFile = fs.readFileSync(templatePath, 'utf-8');
 
-const code = getCode({
-  moduleName: 'Test',
-  swagger: swaggerFile,
-  template: templateFile,
-  imports,
-});
+  let parsedSwagger;
+  try {
+    parsedSwagger = JSON.parse(swaggerFile);
+  } catch (e) {
+    parsedSwagger = yaml(swaggerFile);
+  }
 
-fs.writeFileSync('./demo_autogen.mjs', code);
-console.log(code);
+  const code = getCode({
+    moduleName: 'Test',
+    swagger: parsedSwagger,
+    template: templateFile,
+    imports,
+    constants,
+  });
+
+  fs.writeFileSync(outputPath, code);
+}
+
+export default demo;
