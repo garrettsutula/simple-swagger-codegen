@@ -56,6 +56,10 @@ const code = getCode({
     type: object
     required: true
     description: swagger object
+  outputPath:
+    type: string
+    required: true
+    description: output path for rendered file or application
   imports:
     type: array
     required: false
