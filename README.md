@@ -1,5 +1,5 @@
 # Swagger to Javascript Codegen
-Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
+Minimalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
 - flatten other objects (operation security, responses, schema, scopes, api key, definitions properties) or determine yaml/templating pattern.
