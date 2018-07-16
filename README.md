@@ -1,5 +1,5 @@
 # simple-swagger-codegen
-Minimalist Swagger > Javascript codegen. Assumes linting, style, and complexity enforcement in mustache template or as part of CI process. Templates implemented so far:
+Minimalist Swagger > Javascript code generation from mustache templates - built-in node/express/swagger & Angular 6 codegens. Assumes linting, style, and complexity enforcement in mustache template or as part of CI process. Templates implemented so far:
 
 - App
 - Controller
@@ -7,11 +7,11 @@ Minimalist Swagger > Javascript codegen. Assumes linting, style, and complexity 
 - package.json
 
 ## TODO
-- flatten other objects (operation security, responses, schema, scopes, api key, definitions properties) or determine yaml/templating pattern.
-- more mustache template examples
+- generate whole app from templates
+- flatten other objects (operation security, responses, schema, scopes, api key, definitions properties)
 - add to npm
 - add tests
-- maybe support typescript in the future (invoke angular cli???)
+- add Angular 6 codegen
 
 ## Installation
 Download/clone this repo for now using `curl`, `git` or your favorite github client app. Requires Node.js version `10.0` or higher. Use [nvm](https://github.com/creationix/nvm) to easily switch between different versions of node runtimes.
