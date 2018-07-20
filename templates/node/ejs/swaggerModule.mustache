@@ -1,0 +1,23 @@
+{{#imports}}
+import {{name}} from '{{&path}}';
+{{/imports}}
+
+{{#operations}}
+function {{operationId}}(
+  {{#parameters}}
+  {{name}},
+  {{/parameters}}
+) {
+  return new Promise((resolve, reject) => {
+    // business logic goes here
+    // always return a promise, implement resolve and reject
+    // abstract additional async operations into async functions with await
+  });
+}
+
+{{/operations}}
+export default {
+  {{#operations}}
+  {{operationId}},
+  {{/operations}}
+};
