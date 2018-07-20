@@ -4,5 +4,6 @@ node_modules/
 wks.*
 .DS_Store
 *.swp
-
+dist/
+swagger/
 tmp-*
