@@ -2,55 +2,51 @@
 Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
-- flatten other objects (operation security, responses, schema, scopes, api key, definitions properties) or determine yaml/templating pattern.
-- more mustache template examples
 - add to npm
 - add tests
-- maybe support typescript in the future (invoke angular cli???)
 
 ## Installation
 Download/clone this repo for now using `curl`, `git` or your favorite github client app. Requires Node.js version `10.0` or higher. Use [nvm](https://github.com/creationix/nvm) to easily switch between different versions of node runtimes.
 
 ## Usage
 
-Run the command `node --experimental-modules .\lib\cli.mjs <outputFile> -t [mustache template name] -s [swagger template name]` to generate `<outputFile>.js`
+```javascript
+const fs = require('fs');
+const codegen = require('./lib/codegen');
+const swaggerDoc = require('./swagger.json');
+
+const template = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
+
+const swagger = processSwagger(swaggerDoc);
+
+const code = getCode({
+  swagger,
+  template,
+  imports: {...},
+  customParams: {...},
+});
+
+fs.writeFileSync('./app.js', code);
+```
 
 ## Example
 
-Run example with the command `node --experimental-modules demo.js`
-
-CLI Example: `node --experimental-modules .\cli.mjs generate test -s '../templates/swagger.json' -t '../templates/classGenerator.mustache'`
-
-```javascript
-import fs from 'fs';
-import getCode from 'codegen';
-
-const swaggerFile = JSON.parse(fs.readFileSync('./templates/swagger.json', 'utf-8'));
-const templateFile = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
-
-const code = getCode({
-  moduleName: 'Test',
-  swagger: swaggerFile,
-  template: templateFile,
-});
-```
+Run example with the command `node example.js`
 
 ## Options
+`processSwagger(...)` accepts one argument: a swagger document parsed into a JSON object. You can do this
+
 `getCode({...})` accepts the following parameters:
 
 ```yaml
-  moduleName:
-    type: string
-    required: true
-    description: module/class name (used for output file name in CLI)
-  template:
-    type: object
-    required: true
-    description: a .mustache template
   swagger:
     type: object
     required: true
     description: swagger object
+  template:
+    type: object
+    required: true
+    description: a .mustache template
   imports:
     type: array
     required: false
