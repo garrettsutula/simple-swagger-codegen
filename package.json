@@ -1,8 +1,8 @@
 {
-  "name": "swagger-js-codegen",
-  "main": "./lib/codegen.mjs",
+  "name": "simple-swagger-codegen",
+  "main": "./lib/codegen.js",
   "version": "0.9.0",
-  "description": "A Swagger codegen for JavaScript",
+  "description": "A swagger processor & mustache template rendered for code generation from swagger JSON documents.",
   "scripts": {
     "test": ""
   },

@@ -1,12 +1,11 @@
-# Swagger to Javascript Codegen
-Mininmalist Swagger > Javascript codegen, assumes validation, linting and rules enforcement done at swagger definition and/or mustache template. Simply renders a provided mustache template against a swagger swagger definition.
+# Simple Swagger Codegen
+Swagger Tools + Mustache codegen, simply renders a provided mustache template against a swagger swagger definition.
 
 ## TODO
-- add to npm
 - add tests
 
 ## Installation
-Download/clone this repo for now using `curl`, `git` or your favorite github client app. Requires Node.js version `10.0` or higher. Use [nvm](https://github.com/creationix/nvm) to easily switch between different versions of node runtimes.
+`npm install --save simple-swagger-codegen`
 
 ## Usage
 
@@ -17,16 +16,10 @@ const swaggerDoc = require('./swagger.json');
 
 const template = fs.readFileSync('./templates/classGenerator.mustache', 'utf-8');
 
-const swagger = processSwagger(swaggerDoc);
-
-const code = getCode({
-  swagger,
-  template,
-  imports: {...},
-  customParams: {...},
+codegen.processSwagger(swaggerDoc, imports).then((swagger) => {
+  let code = codegen.renderTemplate(template, swagger);
+  fs.writeFileSync('./controller.js', code);
 });
-
-fs.writeFileSync('./app.js', code);
 ```
 
 ## Example
@@ -36,17 +29,11 @@ Run example with the command `node example.js`
 ## Options
 `processSwagger(...)` accepts one argument: a swagger document parsed into a JSON object. You can do this
 
-`getCode({...})` accepts the following parameters:
-
 ```yaml
   swagger:
     type: object
     required: true
-    description: swagger object
-  template:
-    type: object
-    required: true
-    description: a .mustache template
+    description: a json swagger document
   imports:
     type: array
     required: false
@@ -57,13 +44,23 @@ Run example with the command `node example.js`
     description: optional variables to add to the object passed to mustache
 ```
 
+`renderTemplate({...})` accepts the following parameters:
+
+```yaml
+  swagger:
+    type: object
+    required: true
+    description: any json object, intended to be the formatted swagger object from processSwagger()
+  template:
+    type: object
+    required: true
+    description: a .mustache template
+```
+
 ### Template Variables
 The following data are passed to the [mustache templates](https://github.com/janl/mustache.js):
 
 ```yaml
-moduleName:
-  type: string
-  description: Your AngularJS module name - provided by your options field
 domain:
   type: string
   description: If all options defined: swagger.schemes[0] + '://' + swagger.host + swagger.basePath
@@ -149,7 +146,7 @@ operations:
 You can also pass in your own parameters for the mustache templates by adding a `customParams` object:
 
 ```javascript
-var source = codegen.getCode({
+var source = codegen.processSwagger({
     ...
     customParams: {
       foo: 'bar',
